@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<div class="mt-5 container standard">
+    <div class="mainbody">
+        <p th:text="${ru_sentence}"></p>
+        <details>
+            <summary>Translation</summary>
+            <p th:text="${en_sentence}"></p>
+        </details>
+
+        <th:block th:each="word: ${words_sentences}">
+            <br>
+            <form th:action="@{/flashcard/addword}" method="post">
+                <a th:href="${'/dictionnary/word/' + {word.getRuword()}} "th:text="${word.getRuword()}"></a>
+                <button type="submit" class="btn btn-success" name="word" th:value="${word.getRuword}">Add</button>
+            </form>
+
+        </th:block>
+
+    </div>
+</div>
+</body>
+<div th:insert="fragments.html :: footer"></div>
+</html>

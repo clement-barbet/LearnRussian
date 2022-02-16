@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<div class="mt-5 container standard">
+    <div class="mainbody">
+        <h4><strong>Russian dictionnary</strong></h4>
+        <br>
+        <form action="/search" method="get">
+            <div class="form-outline vw-50">
+                <input type="search" id="form1" class="form-control" placeholder="Search for term"
+                       aria-label="Search" name="search"/>
+            </div>
+        </form>
+        <br>
+
+        <h5><strong>Practice</strong></h5>
+        <br>
+        <th:block th:each="sentence: ${sentences}">
+            <p th:text="${sentence.getPhrase_ru}"></p>
+            <details>
+                <summary>Translation</summary>
+                <p th:text="${sentence.getPhrase_en}"></p>
+            </details>
+            <br>
+        </th:block>
+
+    </div>
+</div>
+</body>
+<div th:insert="fragments.html :: footer"></div>
+</html>

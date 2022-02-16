@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<div class="mt-5 container standard">
+    <div class="mainbody">
+        <h1 th:text="${word.getRuword}">Word</h1>
+        <br>
+        <h2><strong>Translation</strong></h2>
+        <br>
+        <th:block th:each="translation: ${translations}">
+            <p th:text="${translation.getTranslation}">translation</p>
+        </th:block>
+        <h2><strong>Usage</strong></h2>
+        <p th:text="${word.getUsage}">Usage</p>
+        <h2><strong>Example</strong></h2>
+        <p th:text="${example.getPhrase_ru}"></p>
+        <details>
+            <summary>Translation</summary>
+            <p th:text="${example.getPhrase_en}"></p>
+        </details>
+
+
+    </div>
+</div>
+</body>
+<div th:insert="fragments.html :: footer"></div>
+</html>

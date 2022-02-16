@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<div class="mt-5 container standard">
+    <div class="mainbody">
+        <h1>Adding a word : </h1>
+
+        <div th:if="${wordAdded}" class="alert alert-success">
+            <p th:text="${wordAdded}"></p>
+
+        </div>
+        <form name="f" th:action="@{/flashcard/addword}" method="post">
+            <fieldset>
+
+                <div class="form-group">
+                    <label for="word">Russian word</label>
+                    <input type="text" class="form-control" id="word" name="word"
+                           placeholder="Russian word">
+                </div>
+
+
+                <div class="form-actions" style="margin-top: 12px;">
+                    <button type="submit" class="btn btn-success">Input word</button>
+                </div>
+            </fieldset>
+        </form>
+        <br>
+<h3>List of words : </h3>
+        <br>
+        <th:block th:each="word: ${wordlist}">
+
+            <form th:action="@{/flashcard/delword}" method="post">
+                <a th:href="${'/dictionnary/word/' + {word.getRuword}}" th:text="${word.getRuword}"></a>
+                <button type="submit" class="btn btn-danger" name="wordDeleted" th:value="${word.getRuword}">Delete</button>
+            </form>
+
+            <br>
+
+        </th:block>
+
+    </div>
+</div>
+</body>
+<div th:insert="fragments.html :: footer"></div>
+</html>

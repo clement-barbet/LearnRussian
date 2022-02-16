@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+
+<div class="mt-5 container standard">
+    <div class="mainbody">
+        <h1>Results : </h1>
+        <br>
+        <th:block th:each="search: ${search_result}">
+            <p th:text="${search.getRuword}">Word</p>
+            <p><a th:href="@{'/dictionnary/word/' + ${search.getRuword}}">view</a></p>
+        </th:block>
+
+    </div>
+</div>
+</body>
+<div th:insert="fragments.html :: footer"></div>
+</html>

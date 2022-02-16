@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<div class="mt-5 container standard">
+    <div class="mainbody">
+        <p th:text="${profile}"></p>
+    </div>
+</div>
+</body>
+<div th:insert="fragments.html :: footer"></div>
+</html>

@@ -4,7 +4,7 @@ LearnRussian est une application Web inspirée du site internet openrussian.org.
 Le projet a pour but de recréer en partant de zéro ce site, il a été développé sous Spring avec l'outil de template Thymeleaf.
 La base de données utilisée est PostgreSQL, elle est conténeurisé par facilité de déploiement grâce à Docker.
 
-**Fonctionalités**
+# Fonctionalités
 
 Générations de phrases russes aléatoires avec leurs traductions piochées dans une base de données avec plus de 400 000 entrées
 ![lr-project1](https://user-images.githubusercontent.com/99363563/154224893-fa45036f-4ae5-4ae3-92cd-66c498d10478.jpg)
